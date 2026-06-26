@@ -72,6 +72,8 @@ storyScreen.addEventListener("click", () => {
 
         if (currentStory < storyPages.length) {
             storyImage.src = storyPages[currentStory].img;
+            storyImage.src = storyPages[currentStory].img;
+storyText.innerText = storyPages[currentStory].text;
 
             storyImage.onload = () => {
                 storyImage.classList.remove("fade-out");
