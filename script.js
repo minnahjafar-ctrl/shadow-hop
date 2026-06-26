@@ -65,18 +65,28 @@ function showStory() {
 
 if(storyScreen){
 storyScreen.addEventListener("click", () => {
-    storyScreen.classList.add("fade-out");
+    storyImage.classList.add("fade-out");
+
     setTimeout(() => {
         currentStory++;
+
         if (currentStory < storyPages.length) {
-            showStory();
-            storyScreen.classList.remove("fade-out");
-            storyScreen.classList.add("fade-in");
-            setTimeout(() => storyScreen.classList.remove("fade-in"), 800);
+            storyImage.src = storyPages[currentStory].img;
+
+            storyImage.onload = () => {
+                storyImage.classList.remove("fade-out");
+                storyImage.classList.add("fade-in");
+
+                setTimeout(() => {
+                    storyImage.classList.remove("fade-in");
+                }, 800);
+            };
+
         } else {
             storyScreen.style.display = "none";
-           window.location.href = "level-select.html";   // ← start game loop ONLY after story ends
+            window.location.href = "level-select.html";
         }
+
     }, 800);
 });
 }
