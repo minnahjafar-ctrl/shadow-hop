@@ -10,7 +10,23 @@ const storyImage = document.getElementById("story-image");
 const storyText = document.getElementById("story-text");
 const platforms = document.querySelectorAll(".platform");
 const levelsBtn = document.getElementById("levels-btn");
+const preloadImages = [
+    "assets/background-level1.jpg",
+    "assets/background-level2.jpg",
+    "assets/background-level3.jpg",
+    "assets/background-level4.png",
+    "assets/lumi-idle.png",
+    "assets/lumi-run1.png",
+    "assets/lumi-run2.png",
+    "assets/lumi-run3.png",
+    "assets/portal-open.png",
+    "assets/portal-closed.png"
+];
 
+preloadImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+});
 const storyPages = [
     { img: "assets/story1.png", text: "One night, the moon began to crack..." },
     { img: "assets/story2.png", text: "Its light shattered into pieces..." },
