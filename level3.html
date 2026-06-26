@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shadow Hop - Level 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="game" class="level3-theme" data-has-lava="true" style="background-image:url('assets/background-level3.png');">
+  <div id="level-title">LEVEL 3</div>
+
+  <div id="player"></div>
+
+  <!-- Ground -->
+  <div class="platform ground-left" style="left:0; bottom:0; width:220px;"></div>
+  <!-- Step 1 -->
+  <div class="platform" style="left:280px; bottom:130px; width:110px;"></div>
+  <!-- Step 2 crumble -->
+  <div class="platform crumble" id="crumble-platform" style="left:430px; bottom:230px; width:110px;"></div>
+  <!-- Step 3 with spike -->
+  <div class="platform" style="left:580px; bottom:320px; width:110px;"></div>
+  <div class="spike" style="left:610px; bottom:340px;"></div>
+  <!-- Moving platform -->
+  <div class="platform" id="moving-platform1"
+     data-speed="1.2"
+     data-min="700"
+     data-max="840"
+     style="left:770px; bottom:220px; width:110px;">
+</div>
+  <!-- Final platform -->
+  <div class="platform" style="left:870px; bottom:150px; width:130px;"></div>
+
+  <!-- Lava — starts after safe ground -->
+ <div id="lava" style="position:absolute; bottom:0; left:220px; width:calc(100% - 220px); height:18px;"></div>
+
+  <!-- Stars -->
+  <div class="star" style="left:300px; bottom:190px;"></div>
+  <div class="star" style="left:590px; bottom:380px;"></div>
+  <div class="star" style="left:730px; bottom:280px;"></div>
+
+  <!-- Enemy hidden for now -->
+  <div id="enemy" style="left:400px; bottom:20px; display:none;"></div>
+
+  <!-- Portal -->
+  <div id="portal" style="left:880px; bottom:200px;"></div>
+
+  <div id="score">Stars: 0 / 3</div>
+</div>
+
+<div id="level-complete" class="hidden">
+  <h1>LEVEL COMPLETE ⭐</h1>
+  <button id="next-level">Next Level</button>
+  <button id="retry-level">Retry</button>
+</div>
+
+<div id="level-failed" class="hidden">
+  <h1>YOU FAILED 💀</h1>
+  <button id="retry-fail">Try Again</button>
+</div>
+
+<script src="script.js"></script>
+<script>
+  document.getElementById("retry-fail").onclick = () => location.reload();
+</script>
+
+</body>
+</html>

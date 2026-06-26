@@ -1,0 +1,182 @@
+/* ─── Level 4 Theme ──────────────────────────────────────────────────────────*/
+.level4-theme { background-color: #0d0018; overflow: hidden; }
+
+.level4-theme .platform {
+    background: linear-gradient(to bottom, #3b1f5e, #1e0f33);
+    border-top: 3px solid #7c3aed;
+    box-shadow: 0 0 12px rgba(124, 58, 237, 0.4);
+}
+
+/* ─── HUD ────────────────────────────────────────────────────────────────────*/
+#lumi-lives, #enemy-lives {
+    position: absolute;
+    top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 20;
+    background: rgba(0,0,0,0.5);
+    padding: 6px 14px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.12);
+}
+#lumi-lives  { left: 20px; }
+#enemy-lives { right: 20px; }
+
+.life-label {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+}
+.heart { font-size: 18px; transition: transform 0.2s, opacity 0.3s; }
+.heart.lost { opacity: 0.15; transform: scale(0.6); filter: grayscale(1); }
+
+/* ─── Fire hint ──────────────────────────────────────────────────────────────*/
+#fire-hint {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 13px;
+    color: rgba(255, 210, 160, 0.5);
+    letter-spacing: 0.5px;
+    z-index: 20;
+    pointer-events: none;
+    background: rgba(0,0,0,0.3);
+    padding: 5px 18px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,180,80,0.12);
+    white-space: nowrap;
+}
+
+/* ─── CSS Enemy (Guardian) ───────────────────────────────────────────────────*/
+
+/* ─── Lumi Fireball ──────────────────────────────────────────────────────────*/
+.lumi-fireball {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fffaaa, #ffaa00 50%, #ff4400);
+    box-shadow: 0 0 10px #ffaa00, 0 0 25px rgba(255,100,0,0.7);
+    z-index: 10;
+    pointer-events: none;
+    animation: fireballSpin 0.2s linear infinite;
+}
+@keyframes fireballSpin {
+    0%   { box-shadow: 0 0 10px #ffaa00, 0 0 25px rgba(255,100,0,0.7); }
+    100% { box-shadow: 0 0 18px #ffdd00, 0 0 40px rgba(255,160,0,0.9); }
+}
+.lumi-fireball::after {
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: 5px;
+    width: 24px;
+    height: 10px;
+    background: linear-gradient(to left, rgba(255,100,0,0.6), transparent);
+    border-radius: 50%;
+}
+
+/* ─── Enemy Orb ──────────────────────────────────────────────────────────────*/
+
+/* ─── Lumi hit flash ─────────────────────────────────────────────────────────*/
+#player.hit-flash {
+    animation: hitFlash 0.4s ease;
+}
+@keyframes hitFlash {
+    0%,100% { filter: brightness(1); }
+    30%,70% { filter: brightness(6) saturate(0); }
+}
+
+/* ─── Score position in level 4 ─────────────────────────────────────────────*/
+.level4-theme #score {
+    top: 65px;
+    left: 20px;
+    bottom: auto;
+}
+
+/* ─── Portal win hint ────────────────────────────────────────────────────────*/
+#portal-hint {
+    position: absolute;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 13px;
+    color: rgba(255,220,100,0.75);
+    background: rgba(0,0,0,0.45);
+    padding: 4px 14px;
+    border-radius: 20px;
+    z-index: 20;
+    pointer-events: none;
+    animation: hintPulse 1.5s ease-in-out infinite alternate;
+}
+@keyframes hintPulse {
+    0%   { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+#enemy {
+    position: absolute;
+    width: 130px;     /* was 96px */
+    height: 160px;    /* was 120px */
+    z-index: 6;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    image-rendering: pixelated;
+}
+
+.enemy-orb {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #e0aaff, #9b00ff 50%, #2d0060);
+    box-shadow: 0 0 8px #9b30ff, 0 0 22px rgba(150,0,255,0.7);
+    z-index: 10;
+    pointer-events: none;
+    animation: orbPulse 0.25s ease-in-out infinite alternate;
+}
+@keyframes orbPulse {
+    0%   { transform: scale(1); }
+    100% { transform: scale(1.2); box-shadow: 0 0 16px #bf7fff, 0 0 35px rgba(180,0,255,0.9); }
+}
+.enemy-orb::after {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 4px;
+    width: 22px;
+    height: 8px;
+    background: linear-gradient(to right, rgba(150,0,255,0.6), transparent);
+    border-radius: 50%;
+}
+
+#portal {
+    width: 120px;
+    height: 200px;
+    bottom: 0px;
+    outline: none;        /* ADD */
+    border: none;         /* ADD */
+    box-sizing: border-box; /* ADD */
+}
+
+#portal.open {
+    width: 160px;
+    height: 260px;
+    animation: portalAppear 1s ease-out forwards, portalPulse 2s ease-in-out 1s infinite alternate;
+}
+
+@keyframes portalAppear {
+    0%   { transform: scaleY(0); opacity: 0; filter: brightness(3); }
+    60%  { transform: scaleY(1.2); opacity: 1; filter: brightness(2); }
+    100% { transform: scaleY(1); opacity: 1; }
+}
+
+@keyframes portalPulse {
+    0%   { filter: drop-shadow(0 0 20px #bf00ff) drop-shadow(0 0 40px #7c00ff) brightness(1.2); }
+    100% { filter: drop-shadow(0 0 40px #ff00ff) drop-shadow(0 0 80px #bf00ff) brightness(1.6); }
+}

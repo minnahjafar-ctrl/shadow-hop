@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shadow Hop - Level 4</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+<div id="game" class="level4-theme" style="background-image:url('assets/background-level4.png');">
+    <div id="level-title">LEVEL 4</div>
+
+    <!-- HUD -->
+    <div id="lumi-lives">
+    <span class="life-label">LUMI</span>
+    <span class="heart" id="lumi-h1">❤️</span>
+    <span class="heart" id="lumi-h2">❤️</span>
+    <span class="heart" id="lumi-h3">❤️</span>
+    <span class="heart" id="lumi-h4">❤️</span>
+    <span class="heart" id="lumi-h5">❤️</span>
+    <span class="heart" id="lumi-h6">❤️</span>
+</div>
+    <div id="enemy-lives">
+    <span class="heart" id="enemy-h1">💜</span>
+    <span class="heart" id="enemy-h2">💜</span>
+    <span class="heart" id="enemy-h3">💜</span>
+    <span class="heart" id="enemy-h4">💜</span>
+    <span class="heart" id="enemy-h5">💜</span>
+    <span class="heart" id="enemy-h6">💜</span>
+    <span class="heart" id="enemy-h7">💜</span>
+    <span class="heart" id="enemy-h8">💜</span>
+    <span class="life-label">GUARDIAN</span>
+</div>
+
+    <div id="fire-hint">press S to fire 🔥 &nbsp;|&nbsp; jump to dodge ⬆️</div>
+
+    <div id="player"></div>
+
+    <!-- ── Ground sections (gaps at 280-380px and 660-760px) ── -->
+   <!-- REPLACE the 3 ground sections with this single solid ground -->
+<div class="platform" style="left:0; bottom:0; width:1400px;"></div>
+
+    <!-- ── Elevated platforms — stepping stones ── -->
+    <!-- Left side platforms -->
+    <div class="platform" style="left:80px;  bottom:170px; width:120px;"></div>
+    <div class="platform" style="left:260px; bottom:260px; width:120px;"></div>
+
+    <!-- Middle platforms -->
+    <div class="platform" style="left:430px; bottom:170px; width:120px;"></div>
+    <div class="platform" style="left:560px; bottom:280px; width:120px;"></div>
+
+    <!-- Right side platforms (enemy arena) -->
+    <div class="platform" style="left:800px;  bottom:170px; width:120px;"></div>
+    <div class="platform" style="left:980px;  bottom:260px; width:120px;"></div>
+    <div class="platform" style="left:1150px; bottom:170px; width:120px;"></div>
+
+    <!-- ── Spikes ON platforms only ── -->
+    <!-- On left elevated platform — right edge -->
+    <div class="spike" style="left:168px; bottom:190px;"></div>
+    <!-- On middle platform — left edge -->
+    <div class="spike" style="left:432px; bottom:190px;"></div>
+    <!-- On right platform — middle -->
+    <div class="spike" style="left:1050px; bottom:280px;"></div>
+
+    <!-- ── Stars — reachable but require jumping ── -->
+    <!-- Above left platform, safe spot -->
+    <div class="star" style="left:100px;  bottom:230px;"></div>
+    <!-- Above middle platform -->
+    <div class="star" style="left:590px;  bottom:340px;"></div>
+    <!-- Above right platform -->
+    <div class="star" style="left:1180px; bottom:230px;"></div>
+
+    <!-- ── Enemy — chases Lumi ── -->
+    <div id="enemy" style="left:1000px; bottom:20px;"></div>
+
+    <!-- ── Portal — revealed after enemy dies ── -->
+    <div id="portal" class="hidden" style="left:650px; bottom:0px;"></div>
+
+    <div id="score">Stars: 0 / 3</div>
+</div>
+
+<div id="level-complete" class="hidden">
+    <h1>THE DARKNESS FALLS...</h1>
+    <button id="next-level">Finish Journey</button>
+</div>
+
+<div id="level-failed" class="hidden">
+    <h1>YOU FAILED 💀</h1>
+    <button id="retry-fail">Try Again</button>
+</div>
+
+<script src="script2.js"></script>
+<script>
+    document.getElementById("retry-fail").onclick = () => location.reload();
+
+    document.getElementById("next-level").onclick = () => {
+        window.location.href = "finalstory.html";
+    };
+</script>
+</body>
+</html>

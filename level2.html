@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shadow Hop - Level 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="game" style="background-image:url('assets/background-level2.jpg');">
+
+    <div id="level-title">LEVEL 2</div>
+<div id="stars-bg"></div>
+
+<div id="player"></div>
+
+<div class="platform" style="left:0; bottom:0; width:100%;"></div>
+
+<div class="platform" style="left:120px; bottom:160px; width:140px;"></div>
+<div class="platform" style="left:420px; bottom:280px; width:120px;"></div>
+<div class="platform" style="left:720px; bottom:400px; width:120px;"></div>
+<div class="platform" style="left:1020px; bottom:250px; width:120px;"></div>
+
+<div class="spike" style="left:260px; bottom:20px;"></div>
+<div class="spike" style="left:320px; bottom:20px;"></div>
+<div class="spike" style="left:610px; bottom:20px;"></div>
+<div class="spike" style="left:670px; bottom:20px;"></div>
+<div class="spike" style="left:850px; bottom:20px;"></div>
+
+<div class="star" style="left:160px; bottom:210px;"></div>
+<div class="star" style="left:460px; bottom:330px;"></div>
+<div class="star" style="left:1060px; bottom:300px;"></div>
+
+<div id="portal" style="left:1060px; bottom:30px;"></div>
+
+<div id="score">Stars: 0 / 3</div>
+
+</div>
+
+<div id="level-complete" class="hidden">
+   <h1>LEVEL COMPLETE ⭐</h1>
+   <button id="next-level">Next Level</button>
+   <button id="retry-level">Retry</button>
+</div>
+
+<div id="level-failed" class="hidden">
+   <h1>YOU FAILED 💀</h1>
+   <button id="retry-fail">Try Again</button>
+</div>
+
+<!-- Add this to level1.html before </body> -->
+<div id="level-failed" class="hidden">
+   <h1>YOU FAILED 💀</h1>
+   <button id="retry-fail">Try Again</button>
+</div>
+
+<script src="script.js"></script>
+<script>
+  document.getElementById("retry-fail").onclick = () => location.reload();
+</script>
+</body>
+</html>

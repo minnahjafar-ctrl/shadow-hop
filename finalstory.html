@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shadow Hop - Final Story</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="story-screen">
+    <img id="story-image" src="assets/endstory1.png">
+</div>
+
+<script>
+const storyPages = [
+    "assets/endstory1.png",
+    "assets/endstory2.png",
+    "assets/endstory3.png",
+    "assets/endstory4.png"
+];
+
+let currentStory = 0;
+const storyImage = document.getElementById("story-image");
+
+function showStory() {
+    storyImage.classList.add("fade-out");
+
+    setTimeout(() => {
+        storyImage.src = storyPages[currentStory];
+
+        storyImage.classList.remove("fade-out");
+        storyImage.classList.add("fade-in");
+
+        setTimeout(() => {
+            storyImage.classList.remove("fade-in");
+        }, 1000);
+
+    }, 1200);
+}
+
+document.body.addEventListener("click", () => {
+    currentStory++;
+
+    if(currentStory < storyPages.length){
+        showStory();
+    } else {
+        window.location.href = "ending.html";
+    }
+});
+</script>
+
+</body>
+</html>

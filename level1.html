@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shadow Hop - Level 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="game">
+
+    <div id="level-title">LEVEL 1</div>
+    <div id="stars-bg"></div>
+
+    <div id="player"></div>
+
+    <div class="platform" style="left:0; bottom:0; width:100%;"></div>
+
+    <div class="platform" style="left:200px; bottom:150px; width:180px;"></div>
+    <div class="platform" style="left:500px; bottom:250px; width:180px;"></div>
+    <div class="platform" style="left:800px; bottom:350px; width:180px;"></div>
+
+    <div class="star" style="left:240px; bottom:190px;"></div>
+    <div class="star" style="left:540px; bottom:290px;"></div>
+    <div class="star" style="left:840px; bottom:390px;"></div>
+
+    <div id="portal" style="left:1090px; bottom:60px;"></div>
+
+    <div id="score">Stars: 0 / 3</div>
+
+</div>
+
+<div id="level-complete" class="hidden">
+   <h1>LEVEL COMPLETE ⭐</h1>
+   <button id="next-level">Next Level</button>
+   <button id="retry-level">Retry</button>
+</div>
+
+<!-- Add this to level1.html before </body> -->
+<div id="level-failed" class="hidden">
+   <h1>YOU FAILED 💀</h1>
+   <button id="retry-fail">Try Again</button>
+</div>
+
+<script src="script.js"></script>
+<script>
+  document.getElementById("retry-fail").onclick = () => location.reload();
+</script>
+
+</body>
+</html>
