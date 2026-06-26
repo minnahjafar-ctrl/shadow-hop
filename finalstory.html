@@ -9,7 +9,6 @@
 <div id="story-screen">
     <img id="story-image" src="assets/endstory1.png">
 </div>
-
 <script>
 const storyPages = [
     "assets/endstory1.png",
@@ -27,16 +26,18 @@ function showStory() {
     setTimeout(() => {
         storyImage.src = storyPages[currentStory];
 
-        storyImage.classList.remove("fade-out");
-        storyImage.classList.add("fade-in");
+        storyImage.onload = () => {
+            storyImage.classList.remove("fade-out");
+            storyImage.classList.add("fade-in");
 
-        setTimeout(() => {
-            storyImage.classList.remove("fade-in");
-        }, 1000);
-
-    }, 1200);
+            setTimeout(() => {
+                storyImage.classList.remove("fade-in");
+            }, 800);
+        };
+    }, 800);
 }
 
+// first image already shown, so start from second on click
 document.body.addEventListener("click", () => {
     currentStory++;
 
